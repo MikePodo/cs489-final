@@ -1,4 +1,5 @@
 import sqlite3
+import sqlite_vec
 import csv
 import os
 import json
@@ -19,6 +20,11 @@ def sqlite_setup():
         print(f"Removed existing database at {db_path}")
     
     conn = sqlite3.connect(db_path)
+
+    conn.enable_load_extension(True)
+    sqlite_vec.load(conn)
+    conn.enable_load_extension(False)
+
     cursor = conn.cursor()
     
     cursor.execute('''
@@ -39,7 +45,7 @@ def sqlite_setup():
     ''')
     
 
-    print(f"Reading data from csv...")
+    print(f"Building db from csv...")
     with open(csv_path, 'r', encoding='utf-8') as f:
         csv_reader = csv.DictReader(f)
         
