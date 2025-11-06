@@ -1,0 +1,93 @@
+import sqlite3
+import csv
+import os
+import json
+
+def get_product_styles(product_id):
+    with open(f'data/original/fashion-dataset/fashion-dataset/styles/{product_id}.json', 'r') as f:
+        return json.load(f)
+
+def sqlite_setup():    
+    csv_path = 'data/original/fashion-dataset/fashion-dataset/styles.csv'
+    db_path = 'data/products.db'
+    
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+    
+    if os.path.exists(db_path):
+        # Remove if exists
+        os.remove(db_path)
+        print(f"Removed existing database at {db_path}")
+    
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        CREATE TABLE products (
+            id INTEGER PRIMARY KEY,
+            price INTEGER,
+            discountedPrice INTEGER,
+            gender TEXT,
+            masterCategory TEXT,
+            subCategory TEXT,
+            articleType TEXT,
+            baseColor TEXT,
+            season TEXT,
+            year INTEGER,
+            usage TEXT,
+            productDisplayName TEXT
+        )
+    ''')
+    
+
+    print(f"Reading data from csv...")
+    with open(csv_path, 'r', encoding='utf-8') as f:
+        csv_reader = csv.DictReader(f)
+        
+        for row in csv_reader:
+            try:
+                styles = get_product_styles(row['id'])
+                price = int(styles['data']['price'])
+                discountedPrice = int(styles['data']['discountedPrice'])
+
+                if not price:
+                    # Skip products with no price
+                    continue
+
+                cursor.execute('''
+                    INSERT INTO products (id, price, discountedPrice, gender, masterCategory, subCategory, 
+                                      articleType, baseColor, season, year, usage, 
+                                      productDisplayName)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''', (
+                    int(row['id']),
+                    price,
+                    discountedPrice,
+                    row['gender'],
+                    row['masterCategory'],
+                    row['subCategory'],
+                    row['articleType'],
+                    row['baseColour'],
+                    row['season'],
+                    int(row['year']) if row['year'] else None,
+                    row['usage'],
+                    row['productDisplayName']
+                ))
+                    
+            except Exception as e:
+                print(f"Error inserting row {row.get('id')}: {e}")
+                continue
+    
+    conn.commit()
+    
+    cursor.execute("SELECT COUNT(*) FROM products")
+    total_rows = cursor.fetchone()[0]
+    print(f"Total rows: {total_rows}")
+    
+    # cursor.execute("SELECT * FROM products LIMIT 5")
+    # for row in cursor.fetchall():
+    #     print(row)
+
+    conn.close()
+
+
+sqlite_setup()
