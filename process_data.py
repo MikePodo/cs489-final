@@ -8,6 +8,19 @@ def get_product_styles(product_id):
     with open(f'data/original/fashion-dataset/styles/{product_id}.json', 'r') as f:
         return json.load(f)
 
+def load_image_urls():
+    images_csv_path = 'data/original/fashion-dataset/images.csv'
+
+    image_urls = {}
+    
+    with open(images_csv_path, 'r', encoding='utf-8') as f:
+        csv_reader = csv.DictReader(f)
+        for row in csv_reader:
+            product_id = int(row['filename'].replace('.jpg', ''))
+            image_urls[product_id] = row['link']
+
+    return image_urls
+
 def sqlite_setup():    
     csv_path = 'data/original/fashion-dataset/styles.csv'
     db_path = 'data/products.db'
@@ -40,11 +53,15 @@ def sqlite_setup():
             season TEXT,
             year INTEGER,
             usage TEXT,
-            productDisplayName TEXT
+            productDisplayName TEXT,
+            image_url TEXT
         )
     ''')
     
 
+    print(f"Loading image urls...")
+    image_urls = load_image_urls()
+    
     print(f"Building db from csv...")
     with open(csv_path, 'r', encoding='utf-8') as f:
         csv_reader = csv.DictReader(f)
@@ -59,13 +76,16 @@ def sqlite_setup():
                     # Skip products with no price
                     continue
 
+                product_id = int(row['id'])
+                image_url = image_urls.get(product_id, None)
+
                 cursor.execute('''
                     INSERT INTO products (id, price, discountedPrice, gender, masterCategory, subCategory, 
                                       articleType, baseColor, season, year, usage, 
-                                      productDisplayName)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                      productDisplayName, image_url)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
-                    int(row['id']),
+                    product_id,
                     price,
                     discountedPrice,
                     row['gender'],
@@ -76,7 +96,8 @@ def sqlite_setup():
                     row['season'],
                     int(row['year']) if row['year'] else None,
                     row['usage'],
-                    row['productDisplayName']
+                    row['productDisplayName'],
+                    image_url
                 ))
                     
             except Exception as e:
