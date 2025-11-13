@@ -5,11 +5,11 @@ import os
 import json
 
 def get_product_styles(product_id):
-    with open(f'data/original/fashion-dataset/fashion-dataset/styles/{product_id}.json', 'r') as f:
+    with open(f'data/original/fashion-dataset/styles/{product_id}.json', 'r') as f:
         return json.load(f)
 
 def sqlite_setup():    
-    csv_path = 'data/original/fashion-dataset/fashion-dataset/styles.csv'
+    csv_path = 'data/original/fashion-dataset/styles.csv'
     db_path = 'data/products.db'
     
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
@@ -89,10 +89,6 @@ def sqlite_setup():
     total_rows = cursor.fetchone()[0]
     print(f"Total rows: {total_rows}")
     
-    # cursor.execute("SELECT * FROM products LIMIT 5")
-    # for row in cursor.fetchall():
-    #     print(row)
-
     conn.close()
 
 

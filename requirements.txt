@@ -1,1 +1,7 @@
 sqlite-vec
+torch
+git+https://github.com/openai/CLIP.git
+numpy
+pillow
+scikit-learn
+pandas
