@@ -48,6 +48,7 @@ def search_products(query_text, model, limit=5):
     """, (query_embedding.tobytes(), limit))
     
     results = []
+    prices = []
     for rowid, distance in cursor.fetchall():
         prod_cursor = products_conn.cursor()
         prod_cursor.execute("SELECT * FROM products WHERE id = ?", (rowid,))
@@ -55,12 +56,28 @@ def search_products(query_text, model, limit=5):
         if not product:
             continue
 
+        price = product['discountedPrice'] if product['discountedPrice'] else product['price']
         results.append({
             'id': rowid,
             'name': product['productDisplayName'],
             "image_url": product['image_url'],
-            'distance': distance
+            'distance': distance,
+            'price': price
         })
+        if price:
+            prices.append(price)
+    
+    # Sort with price consideration
+    if prices:
+        max_price = max(prices)
+        for result in results:
+            if result['price']:
+                price_factor = (result['price'] / max_price) * 0.1
+                result['score'] = result['distance'] + price_factor
+            else:
+                result['score'] = result['distance']
+        
+        results.sort(key=lambda x: x['score'])
     
     end_time = time.time()
     duration_ms = (end_time - start_time) * 1000
@@ -69,7 +86,7 @@ def search_products(query_text, model, limit=5):
 
 def print_results(results):
     for i, result in enumerate(results, 1):
-        print(f"{i}.\n  Name: {result['name']}\n  Image: {result['image_url']}\n  Distance: {result['distance']:.4f}")
+        print(f"{i}.\n  Name: {result['name']}\n  Price: ${result['price'] / 100:.2f}\n  Image: {result['image_url']}\n  Distance: {result['distance']:.4f}")
 
 query = input("\nEnter query: ").strip()
 
