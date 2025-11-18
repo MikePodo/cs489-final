@@ -29,7 +29,7 @@ embeddings_conn.enable_load_extension(True)
 sqlite_vec.load(embeddings_conn)
 embeddings_conn.enable_load_extension(False)
 
-def search_products(query_text, model, limit=5):
+def search_products(query_text, model, limit):
     start_time = time.time()
 
     # Encode query text
@@ -90,8 +90,8 @@ def print_results(results):
 
 query = input("\nEnter query: ").strip()
 
-base_results, base_time = search_products(query, base_model, limit=5)
-finetuned_results, finetuned_time = search_products(query, finetuned_model, limit=5)
+base_results, base_time = search_products(query, base_model, limit=6)
+finetuned_results, finetuned_time = search_products(query, finetuned_model, limit=6)
 
 print(f"\nBASE CLIP ({int(base_time)}ms):")
 print_results(base_results)

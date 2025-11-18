@@ -1,0 +1,68 @@
+(venv) mike@mac cs489-final % python3 query.py
+Using device: mps
+
+Enter query: I'm a man looking for some stylish sunglasses with tinted lenses.
+
+BASE CLIP (137ms):
+1.
+  Name: Revlon Colorsilk Brown-Black Hair Colour 2N
+  Price: $3.50
+  Image: http://assets.myntassets.com/v1/image/style/properties/55335/Revlon-Colorsilk-Brown-Black-Hair-Colour-2N_1_1ae503d91181a7e72af1bf5f75b07867.jpg
+  Distance: 11.7004
+2.
+  Name: Pond's Gold Radiance Ultra Rich Day Cream
+  Price: $8.09
+  Image: http://assets.myntassets.com/v1/images/style/properties/Ponds-Gold-Radiance-Ultra-Rich-Day-Cream_d95fe9d397ea5456e167144f35d2aac5_images.jpg
+  Distance: 11.8047
+3.
+  Name: Streetwear Shine Divine Black Divine Nail Enamel 01
+  Price: $1.30
+  Image: http://assets.myntassets.com/v1/images/style/properties/Streetwear-Women-Nail-Polish_9125f2fc445434200cab634613f948e3_images.jpg
+  Distance: 11.8217
+4.
+  Name: Little Miss Women Green Printed T-shirt
+  Price: $4.99
+  Image: http://assets.myntassets.com/v1/images/style/properties/b804d4a17e502fde6b694439651d3dac_images.jpg
+  Distance: 11.8178
+5.
+  Name: Fossil Men Black Dial Watch AM4360
+  Price: $54.95
+  Image: http://assets.myntassets.com/v1/images/style/properties/3ffeba0e1e187630d9af49180c02ae1f_images.jpg
+  Distance: 11.8080
+6.
+  Name: Fossil Men Blue Dial Chronograph Watch CH2752
+  Price: $94.95
+  Image: http://assets.myntassets.com/v1/images/style/properties/35c54f3458b165f0a4d56996f4b17299_images.jpg
+  Distance: 11.8432
+
+FINE-TUNED CLIP (26ms):
+1.
+  Name: Stoln Women Green Sunglasses
+  Price: $3.33
+  Image: http://assets.myntassets.com/v1/images/style/properties/d2acc783ebb1e3c5e19fc150966fb9f0_images.jpg
+  Distance: 10.3277
+2.
+  Name: Fastrack Men Black Sunglasses
+  Price: $20.69
+  Image: http://assets.myntassets.com/v1/images/style/properties/Fastrack-Men-Black-Sunglassesb1193e0ca010503f820f565b848a6c20_images.jpg
+  Distance: 10.3107
+3.
+  Name: Van Heusen Unisex Sunglasses VH216-C2
+  Price: $18.00
+  Image: http://assets.myntassets.com/v1/images/style/properties/Van-Heusen-Unisex-Brown-Sunglasses_c9daa6b4b86307e4a8ce1f4576923e67_images.jpg
+  Distance: 10.3298
+4.
+  Name: Allen Solly Women Printed Sunglasses AH218-C3
+  Price: $16.50
+  Image: http://assets.myntassets.com/v1/images/style/properties/Allen-Solly-Women-Brown-Sunglass_82fcb1355810aaea96d03308c96049fb_images.jpg
+  Distance: 10.3410
+5.
+  Name: Oakley Men Holbrook White Sunglasses
+  Price: $50.22
+  Image: http://assets.myntassets.com/v1/images/style/properties/ac81bc6420d180cd78c0df68ee1de1ca_images.jpg
+  Distance: 10.3106
+6.
+  Name: Louis Philippe Men Sunglasses LP202-C1
+  Price: $22.50
+  Image: http://assets.myntassets.com/v1/images/style/properties/8f9ecf549bde9a8cde75711ce29b03a7_images.jpg
+  Distance: 10.3762

@@ -1,0 +1,68 @@
+(venv) mike@mac cs489-final % python3 query.py 
+Using device: mps
+
+Enter query: I'm a man with a basketball game coming up and I need some new shoes. My favorite color is green.
+
+BASE CLIP (149ms):
+1.
+  Name: Artengo 522 C Men Whit Blue 09
+  Price: $19.99
+  Image: http://assets.myntassets.com/v1/images/style/properties/2fa43338b6d887ca9fba200f030de96d_images.jpg
+  Distance: 11.2520
+2.
+  Name: Lotto Men White Sports Shoes
+  Price: $23.99
+  Image: http://assets.myntassets.com/v1/images/style/properties/de8f01c18b912e2bfd45a85ee5481fbf_images.jpg
+  Distance: 11.3151
+3.
+  Name: Lotto Men White Sports Shoes
+  Price: $22.99
+  Image: http://assets.myntassets.com/v1/images/style/properties/4a502874b78fd649bf1a9bbb6fd7caca_images.jpg
+  Distance: 11.3215
+4.
+  Name: Nike Men Sports Shoes
+  Price: $25.95
+  Image: http://assets.myntassets.com/v1/images/style/properties/9f45435dded7addd1d384d140c183bd9_images.jpg
+  Distance: 11.3189
+5.
+  Name: ID Men Green Shoes
+  Price: $17.85
+  Image: http://assets.myntassets.com/v1/images/style/properties/bdb5d043078616afe221f80a2d768ede_images.jpg
+  Distance: 11.3499
+6.
+  Name: Nike Men's Streetgato White Shoe
+  Price: $55.00
+  Image: http://assets.myntassets.com/v1/images/style/properties/7490291f90c4e68990abe550f33161db_images.jpg
+  Distance: 11.3499
+
+FINE-TUNED CLIP (35ms):
+1.
+  Name: ID Men Green Shoes
+  Price: $17.85
+  Image: http://assets.myntassets.com/v1/images/style/properties/bdb5d043078616afe221f80a2d768ede_images.jpg
+  Distance: 9.7897
+2.
+  Name: Nike Men Sports Shoes
+  Price: $25.95
+  Image: http://assets.myntassets.com/v1/images/style/properties/9f45435dded7addd1d384d140c183bd9_images.jpg
+  Distance: 9.8052
+3.
+  Name: Nike Men Elite Sports Shoes
+  Price: $25.95
+  Image: http://assets.myntassets.com/v1/images/style/properties/d84094597696c6cc653c2dd7d3661e82_images.jpg
+  Distance: 9.8223
+4.
+  Name: Puma Unisex Green Limnos Casual Shoes
+  Price: $10.99
+  Image: http://assets.myntassets.com/v1/images/style/properties/Puma-Unisex-Green-Limnos-Casual-Shoes_07bb5f8737eee45e9692eb67aaa455d3_images.jpg
+  Distance: 9.8663
+5.
+  Name: Puma Men White Contest Hi Shoes
+  Price: $39.99
+  Image: http://assets.myntassets.com/v1/images/style/properties/da393033d0f73712751ee966d3b890e1_images.jpg
+  Distance: 9.8241
+6.
+  Name: Nike Men's Streetgato White Shoe
+  Price: $55.00
+  Image: http://assets.myntassets.com/v1/images/style/properties/7490291f90c4e68990abe550f33161db_images.jpg
+  Distance: 9.8173

@@ -1,0 +1,68 @@
+(venv) mike@mac cs489-final % python3 query.py
+Using device: mps
+
+Enter query: I'm a women who needs a new bag, big enough to fit many items
+
+BASE CLIP (180ms):
+1.
+  Name: Little Miss Women Green Printed T-shirt
+  Price: $4.99
+  Image: http://assets.myntassets.com/v1/images/style/properties/b804d4a17e502fde6b694439651d3dac_images.jpg
+  Distance: 11.8629
+2.
+  Name: Nike Women Nike Pink-Blue tote Pink Bags
+  Price: $9.95
+  Image: http://assets.myntassets.com/v1/images/style/properties/31dfde46a523dbbb79c03f4e951aafd4_images.jpg
+  Distance: 11.8780
+3.
+  Name: Revlon Touch & Glow Advanced Fairness Daily Moisturising Lotion SPF 15
+  Price: $1.60
+  Image: http://assets.myntassets.com/v1/images/style/properties/Revlon-Touch---Glow-Advanced-Fairness-Daily-Moisturising-Lotion-SPF-15_3ba567515c64b93ae75d71464d33e1a8_images.jpg
+  Distance: 12.0308
+4.
+  Name: Wrangler Unisex Canvas Khaki Sling Bag
+  Price: $8.84
+  Image: http://assets.myntassets.com/v1/images/style/properties/9ad92cfeb857c0d358c2f0ac5746d0d4_images.jpg
+  Distance: 11.9606
+5.
+  Name: Lino Perros Women Purple Wallet
+  Price: $3.95
+  Image: http://assets.myntassets.com/v1/images/style/properties/e9546324d7a4e2455fff30ac60f5da0d_images.jpg
+  Distance: 12.0213
+6.
+  Name: Revlon Touch & Glow Advanced Fairness Cream
+  Price: $2.50
+  Image: http://assets.myntassets.com/v1/images/style/properties/Revlon-Touch---Glow-Advanced-Fairness-Cream_325ff264ec95082fecf0d0de7a3e3517_images.jpg
+  Distance: 12.0539
+
+FINE-TUNED CLIP (32ms):
+1.
+  Name: Nike Women Nike Pink-Blue tote Pink Bags
+  Price: $9.95
+  Image: http://assets.myntassets.com/v1/images/style/properties/31dfde46a523dbbb79c03f4e951aafd4_images.jpg
+  Distance: 10.4238
+2.
+  Name: Nike Women Athletes Rowena Blue Handbag
+  Price: $12.95
+  Image: http://assets.myntassets.com/v1/images/style/properties/4f1996b87e892092c20856474730946a_images.jpg
+  Distance: 10.4712
+3.
+  Name: Be For Bag Women Pink Tote Bag
+  Price: $7.99
+  Image: http://assets.myntassets.com/v1/images/style/properties/7af08698738220b8bd735f825d889226_images.jpg
+  Distance: 10.5658
+4.
+  Name: Little Miss Women Green Printed T-shirt
+  Price: $4.99
+  Image: http://assets.myntassets.com/v1/images/style/properties/b804d4a17e502fde6b694439651d3dac_images.jpg
+  Distance: 10.6106
+5.
+  Name: Puma Unisex Core Shopper Pink Bags
+  Price: $9.99
+  Image: http://assets.myntassets.com/v1/images/style/properties/20815b509a8112561ed21d994b5616fa_images.jpg
+  Distance: 10.6260
+6.
+  Name: Wrangler Unisex Canvas Khaki Sling Bag
+  Price: $8.84
+  Image: http://assets.myntassets.com/v1/images/style/properties/9ad92cfeb857c0d358c2f0ac5746d0d4_images.jpg
+  Distance: 10.6681
